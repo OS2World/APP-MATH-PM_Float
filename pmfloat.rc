@@ -1,0 +1,33 @@
+#include <os2.h>
+#include "pmfloat.h"
+
+ICON ID_ICON pmfloat.ico
+
+MENU    ID_MENU PRELOAD
+BEGIN
+        SUBMENU "~File",        ID_FILE
+        BEGIN
+                MENUITEM "~Exit F3",   ID_EXIT
+        END
+        SUBMENU "~View",        ID_VIEW
+        BEGIN
+                MENUITEM "~Short", ID_SHORT
+                MENUITEM "~Long", ID_LONG
+                MENUITEM "~Float", ID_FLOAT
+                MENUITEM "~Double", ID_DOUBLE
+                MENUITEM "L~ong Double", ID_LDOUBLE
+        END
+        SUBMENU "~Help",   ID_HELPMENU
+        BEGIN
+                MENUITEM "~About...", ID_ABOUTOPTION
+                MENUITEM "~Help...", ID_HELPOPTION
+        END
+END
+
+ACCELTABLE ID_MENU PRELOAD
+BEGIN
+   VK_F3, ID_EXIT, VIRTUALKEY  ; quit with F3
+END
+
+rcinclude pmfloat.dlg
+

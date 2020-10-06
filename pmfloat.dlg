@@ -1,0 +1,56 @@
+DLGINCLUDE 1 "pmfloat.h"
+
+DLGTEMPLATE ID_ABOUT LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "About", ID_ABOUT, 67, 36, 148, 70, WS_VISIBLE, FCF_SYSMENU | 
+            FCF_TITLEBAR
+    BEGIN
+        LTEXT           "PMFLOAT", ID_ABOUT1, 57, 52, 40, 8
+        LTEXT           "Copyright 1994 Paul Floyd", ID_ABOUT2, 23, 39, 108, 
+                        9
+        LTEXT           "Builtin C-type viewer", ID_ABOUT3, 33, 27, 89, 8
+        DEFPUSHBUTTON   "OK", ID_ABOUT_OK, 57, 9, 40, 14, WS_GROUP
+    END
+END
+
+DLGTEMPLATE ID_HELP LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "Help", ID_HELP, 12, 6, 160, 77, WS_VISIBLE, FCF_SYSMENU | 
+            FCF_TITLEBAR
+    BEGIN
+        LTEXT           "Press Enter or click OK to refresh", ID_HELP1, 5, 
+                        57, 139, 8, NOT WS_GROUP
+        LTEXT           "HEX characters must be in ""bytes""", ID_HELP2, 5, 
+                        45, 142, 8
+        LTEXT           "(1 or 2 hex digits) separated by ", ID_HELP3, 5, 33, 
+                        135, 8
+        LTEXT           "1 or more spaces", ID_HELP4, 5, 21, 71, 8
+        DEFPUSHBUTTON   "Done", ID_HELP_OK, 55, 3, 40, 14, WS_GROUP
+    END
+END
+
+DLGTEMPLATE ID_MAIN LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "PM Float", ID_MAIN, 73, 2, 164, 135, WS_VISIBLE, FCF_SYSMENU | 
+            FCF_TITLEBAR | FCF_MINBUTTON | FCF_NOBYTEALIGN
+            PRESPARAMS PP_FONTNAMESIZE, "10.Helv"
+    BEGIN
+        LTEXT           "Hex", ID_HEXTITLE, 13, 110, 16, 8
+        ENTRYFIELD      "", ID_HEX, 15, 96, 136, 8, NOT ES_AUTOSCROLL | 
+                        ES_MARGIN
+        LTEXT           "Hex - byteswapped", ID_HEXSWAPTITLE, 13, 82, 82, 8
+        ENTRYFIELD      "", ID_HEXSWAP, 15, 68, 136, 8, NOT ES_AUTOSCROLL | 
+                        ES_MARGIN
+        LTEXT           "Value", ID_VALUETITLE, 13, 54, 25, 8
+        ENTRYFIELD      "", ID_VALUE, 15, 40, 136, 8, NOT ES_AUTOSCROLL | 
+                        ES_MARGIN
+        DEFPUSHBUTTON   "OK", DID_OK, 36, 17, 40, 14, WS_GROUP | NOT 
+                        WS_TABSTOP
+        PUSHBUTTON      "Quit", DID_CANCEL, 82, 17, 40, 14, WS_GROUP | NOT 
+                        WS_TABSTOP
+        CTEXT           "Double", ID_STAT, 0, 0, 164, 8
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00BE5064L
+                        PRESPARAMS PP_BACKGROUNDCOLOR, 0x0018C64BL
+    END
+END
+

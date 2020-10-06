@@ -1,0 +1,91 @@
+Update: October 2020
+
+I'm adding the source code and licence.
+
+Copyright (c) 1994 Paul Floyd.
+All rights reserved.
+
+Redistribution and use in source and binary forms are permitted
+provided that the above copyright notice and this paragraph are
+duplicated in all such forms and that any documentation,
+advertising materials, and other materials related to such
+distribution and use acknowledge that the software was developed
+by the <organization>. The name of the
+<organization> may not be used to endorse or promote products derived
+from this software without specific prior written permission.
+THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+
+This is my first public attempt at an OS/2 program. Beware. I guess that makes it a beta
+test.
+
+Standard disclaimer:
+Use this program at your own risk. I am not responsible for any damage, directly or
+indirectly, that it may cause. If you don't backup your data and you lose it, you
+have no-one but yourself to blame. This program is provided on an as-is basis, with
+no warranty of merchantability.
+
+WHAT DOES IT DO?
+You can enter all of the main numeric C types into the entry boxes to see what they
+look like in Hex. Alternatively, you can enter Hex (byteswapped or in the correct order)
+and see the numeric value it represents.
+
+WHY DOES IT DO THAT?
+If you are a programmer and have to deal with source/data files, but don't have information
+on the origins, and can't convert 0xb92419a8c921e0ff287d into long double floating point
+in your head, then this is for you. Or if you want to learn a bit about floating point
+representation (though I admit binary would be a bit better for that).
+
+WHAT DOESN'T IT DO?
+No cut'n'paste. I had to put a zero in the long double type, not sure why, it didn't
+like the undefined values. No choices for other than Hex (no Octal, no Binary, no Decimal)
+in the upper two entry boxes and decimal in the lower. No NaNs or infs. No online help
+(I don't count 1 dialog box).
+
+HOW DO I INSTALL IT?
+All you need is the exe file (pmfloat.exe). Run it from the command line (start pmfloat),
+create a program object for it (drag a program object from the templates folder,
+use "find" to find the exe, change the icon text to "PMFLOAT", close the dialog box
+then double click on the PMFLOAT ICON).
+
+HOW DO I USE IT?
+Select the Type you want from the "View" menu. Choose from:
+   short (2 byte) +/-32768 integer
+   long  (4 byte) +/-2147483648 integer
+   float (4 byte) +/-.(7 digits precision)+/-(38 max) floating point
+   double (8 byte)   +/-.(15 digits precision)+/-(308 max) floating point
+   long double (10 byte)   +/-.(17 digits of precision)+/-(4932 max) floating point
+
+You can enter the following characters into the "Value" entry box:
+0123456789eE+-.
+Other characters cause beeps.
+If you enter more than one 'e' or 'E', and more than a total of two '+' or '-', the
+input will not be accepted. However, the input is not checked for syntax, you
+could enter "+e+1". It will probably crash the program. The entry box is limited
+to the maximum precision with maximum mantissa - you can't type in more characters
+than that. For integral types (short and long), you can enter exponential,
+but everything including and after the 'e' will be ignored.
+
+In either of the Hex boxes, you can enter the following characters
+0123456789aAbBcCdDeEfF<space>
+Anything else -> beep!
+When you press enter or select OK, the input will be checked to ensure that there
+are a correct number of hex numbers. So for "double" there must be 8 1-or-2 character
+numbers. Each must be separated by at least one space. There can be spaces leading
+and trailing. The entry box is limited to one space between each characted plus two
+for each hex byte, so "double" allows 23 characters (8 bytes = 16 hex characters plus
+7 spaces). You can enter a single character, omitting the leading 0 for byte values < 16.
+By "gaining" characters in this way, it is possible and permissible to have more
+than one space between hex bytes. Otherwise "123" could be "1 2 3", "12 3" or "1 23".
+
+It would have been a lot easier to just take the input in a single block, but that is not
+so easy to read, especially for doubles and long doubles. Alternatively, i could have used
+a different entry box for each byte, but that would involve a great deal of mouse
+clicking/tabbing to navigate.
+
+WHAT NEXT?
+I'd like to work out how to use online help. I'd also like to work out how cut'n'paste
+works. So i might add them. I did think of adding x86 opcodes as an opton for the value
+entry box.
+

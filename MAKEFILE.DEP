@@ -1,0 +1,37 @@
+# IBM Developer's Workframe/2 Make File Creation run at 18:00:31 on 06/01/94
+
+# Make File Creation run in directory:
+#   C:\IBMCPP\WKFRAME\PMFLOAT;
+
+# Assumed INCLUDE environment variable path:
+#   C:\TOOLKT21\C\OS2H;
+#   C:\TOOLKT21\C\OS2H\VDD;
+#   C:\TOOLKT21\ASM\OS2INC;
+#   C:\IBMCPP\INCLUDE;
+#   C:\IBMCPP\IBMCLASS;
+
+
+INCLUDE002=.
+INCLUDE002=$(INCLUDE002);$(INCLUDE)
+
+INCLUDE001=.
+INCLUDE001=$(INCLUDE001);$(INCLUDE)
+
+INCLUDE000=$(INCLUDE)
+
+
+pmfloat.RES:  pmfloat.rc  \
+#  {$(INCLUDE002)}OS2.H  \
+   C:\IBMCPP\WKFRAME\PMFLOAT\PMFLOAT.H  \
+   PMFLOAT.ICO  \
+   PMFLOAT.DLG  \
+#    C:\IBMCPP\WKFRAME\PMFLOAT\PMFLOAT.H  \
+   MAKEFILE
+
+pmfloat.OBJ:  pmfloat.c  \
+#  {$(INCLUDE000)}os2.h  \
+#  {$(INCLUDE000)}stdlib.h  \
+#  {$(INCLUDE000)}string.h  \
+#  {$(INCLUDE000)}math.h  \
+   {$(INCLUDE001)}pmfloat.h  \
+   MAKEFILE

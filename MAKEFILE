@@ -1,0 +1,36 @@
+# IBM Developer's Workframe/2 Make File Creation run at 18:00:31 on 06/01/94
+
+# Make File Creation run in directory:
+#   C:\IBMCPP\WKFRAME\PMFLOAT;
+
+.SUFFIXES:
+
+.SUFFIXES: .c .cpp .cxx .rc
+
+ALL: PMFLOAT.EXE \
+     pmfloat.RES
+
+PMFLOAT.EXE:  \
+  pmfloat.OBJ \
+  pmfloat.RES \
+  MAKEFILE
+   ICC.EXE @<<
+ /B" /pmtype:pm"
+ /Fe"PMFLOAT.EXE" 
+pmfloat.OBJ
+<<
+   RC pmfloat.RES PMFLOAT.EXE
+
+{.}.rc.res:
+   RC -r .\$*.RC
+
+{.}.c.obj:
+   ICC.EXE Paul Floyd /Ss /V"Version 0.0 Copyright (c) 1994 Paul Floyd" /G4 /C   .\$*.c
+
+{.}.cpp.obj:
+   ICC.EXE Paul Floyd /Ss /V"Version 0.0 Copyright (c) 1994 Paul Floyd" /G4 /C   .\$*.cpp
+
+{.}.cxx.obj:
+   ICC.EXE Paul Floyd /Ss /V"Version 0.0 Copyright (c) 1994 Paul Floyd" /G4 /C   .\$*.cxx
+
+!include MAKEFILE.DEP
